@@ -12,7 +12,7 @@
      ------------------------------------------------------------------ */
   const CONFIG = {
     // Número de WhatsApp: código de país 52 + 10 dígitos, sin espacios ni signos.
-    whatsapp: '524492240909',
+    whatsapp: '524774679810',
     timezone: 'America/Mexico_City',
     schedule: { days: [1, 2, 3, 4, 5], open: 9, close: 16 }, // lunes a viernes, 9:00 a 16:00
     rotator: [
