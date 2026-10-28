@@ -12,7 +12,7 @@
      ------------------------------------------------------------------ */
   const CONFIG = {
     // Número de WhatsApp: código de país 52 + 10 dígitos, sin espacios ni signos.
-    whatsapp: '524774679810',      // León (número por defecto)
+    whatsapp: '524772021252',      // León (número por defecto)
     whatsappAgs: '524499607450',   // Aguascalientes (botones con data-wa-city="ags")
     timezone: 'America/Mexico_City',
     // Por día de la semana (0 = domingo ... 6 = sábado): [apertura, cierre] en formato 24 h. Sin entrada = cerrado.
