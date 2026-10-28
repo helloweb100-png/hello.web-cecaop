@@ -12,9 +12,11 @@
      ------------------------------------------------------------------ */
   const CONFIG = {
     // Número de WhatsApp: código de país 52 + 10 dígitos, sin espacios ni signos.
-    whatsapp: '524774679810',
+    whatsapp: '524774679810',      // León (número por defecto)
+    whatsappAgs: '524499607450',   // Aguascalientes (botones con data-wa-city="ags")
     timezone: 'America/Mexico_City',
-    schedule: { days: [1, 2, 3, 4, 5], open: 9, close: 16 }, // lunes a viernes, 9:00 a 16:00
+    // Por día de la semana (0 = domingo ... 6 = sábado): [apertura, cierre] en formato 24 h. Sin entrada = cerrado.
+    schedule: { 1: [8, 16], 2: [8, 16], 3: [8, 16], 4: [8, 16], 5: [8, 16], 6: [9, 14] }, // L a V 8:00-16:00, sábado 9:00-14:00
     rotator: [
       'transporte de carga general',
       'transporte de pasaje y turismo',
@@ -35,7 +37,7 @@
   const lerp = (a, b, t) => a + (b - a) * t;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  const waURL = (text) => 'https://wa.me/' + CONFIG.whatsapp + (text ? '?text=' + encodeURIComponent(text) : '');
+  const waURL = (text, number = CONFIG.whatsapp) => 'https://wa.me/' + number + (text ? '?text=' + encodeURIComponent(text) : '');
   const safe = (name, fn) => { try { fn(); } catch (err) { console.warn('[CECAOP] módulo "' + name + '" falló:', err); } };
 
   root.classList.add('js-ok');
@@ -574,7 +576,7 @@
   function initStatus() {
     const dayNames = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
     const weekdayIndex = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
-    const { days, open, close } = CONFIG.schedule;
+    const schedule = CONFIG.schedule;
     const fmt = (h) => { const hr = h % 12 || 12; return hr + ':00 ' + (h < 12 ? 'AM' : 'PM'); };
 
     const nowMX = () => {
@@ -587,19 +589,19 @@
 
     const render = () => {
       const { day, mins } = nowMX();
-      const workday = days.includes(day);
+      const today = schedule[day];
       let isOpen = false;
       let text;
-      if (workday && mins >= open * 60 && mins < close * 60) {
+      if (today && mins >= today[0] * 60 && mins < today[1] * 60) {
         isOpen = true;
-        text = 'Abierto ahora, cerramos a las ' + fmt(close);
-      } else if (workday && mins < open * 60) {
-        text = 'Cerrado, abrimos hoy a las ' + fmt(open);
+        text = 'Abierto ahora, cerramos a las ' + fmt(today[1]);
+      } else if (today && mins < today[0] * 60) {
+        text = 'Cerrado, abrimos hoy a las ' + fmt(today[0]);
       } else {
         let offset = 1;
-        while (!days.includes((day + offset) % 7) && offset < 8) offset++;
+        while (!schedule[(day + offset) % 7] && offset < 8) offset++;
         const label = offset === 1 ? 'mañana' : 'el ' + dayNames[(day + offset) % 7];
-        text = 'Cerrado, abrimos ' + label + ' a las ' + fmt(open);
+        text = 'Cerrado, abrimos ' + label + ' a las ' + fmt(schedule[(day + offset) % 7][0]);
       }
       $$('[data-status]').forEach((el) => { el.textContent = text; });
       $$('[data-status-wrap]').forEach((el) => el.classList.toggle('is-open', isOpen));
@@ -614,7 +616,7 @@
      ------------------------------------------------------------------ */
   function initWhatsApp() {
     $$('[data-wa]').forEach((a) => {
-      a.href = waURL(a.dataset.waText || '');
+      a.href = waURL(a.dataset.waText || '', a.dataset.waCity === 'ags' ? CONFIG.whatsappAgs : CONFIG.whatsapp);
       a.target = '_blank';
       a.rel = 'noopener noreferrer';
     });
@@ -688,6 +690,40 @@
   }
 
   /* ------------------------------------------------------------------
+     VIDEO DEL CURSO: modal; el archivo no se descarga hasta que se abre
+     ------------------------------------------------------------------ */
+  function initVideo() {
+    const dialog = $('#video-modal');
+    // Sin <dialog> el enlace simplemente abre el video en el navegador
+    if (!dialog || typeof dialog.showModal !== 'function') return;
+    const player = $('video', dialog);
+    const title = $('#video-modal-title', dialog);
+    let opener = null;
+
+    $$('[data-video]').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        opener = link;
+        title.textContent = link.dataset.videoTitle || 'Video del curso';
+        player.src = link.getAttribute('href');
+        root.classList.add('video-open');
+        dialog.showModal();
+        player.play().catch(() => { /* el usuario puede darle play con los controles */ });
+      });
+    });
+
+    $('[data-video-close]', dialog).addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
+    dialog.addEventListener('close', () => {
+      player.pause();
+      player.removeAttribute('src');
+      player.load();
+      root.classList.remove('video-open');
+      if (opener) opener.focus();
+    });
+  }
+
+  /* ------------------------------------------------------------------
      BUCLE PRINCIPAL
      ------------------------------------------------------------------ */
   function startLoop() {
@@ -729,6 +765,7 @@
   safe('interactions', initInteractions);
   safe('status', initStatus);
   safe('whatsapp', initWhatsApp);
+  safe('video', initVideo);
   safe('hero', initHero);
   startLoop();
 

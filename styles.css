@@ -406,6 +406,17 @@ html.is-ready .site-header, html:not(.js-ok) .site-header { transform: none; }
 .hero__grid { display: grid; gap: 44px; align-items: center; }
 .hero__copy { position: relative; }
 
+.sct-card {
+  display: inline-grid; gap: 2px; max-width: 100%; margin-bottom: 24px; padding: 11px 18px; border-radius: 14px;
+  border: 1px solid rgba(255, 194, 14, 0.55); background: rgba(7, 20, 64, 0.72);
+  font-size: 0.8rem; line-height: 1.35; color: rgba(255, 255, 255, 0.82);
+}
+.sct-card strong { font: 700 0.92rem/1.3 var(--font-display); letter-spacing: -0.01em; color: #fff; }
+.sct-card p { display: flex; flex-wrap: wrap; gap: 0 14px; }
+.sct-card p span { white-space: nowrap; }
+.sct-card p b { font-weight: 700; color: var(--gold-400); }
+.sct-card i { display: none; font-style: normal; color: rgba(255, 255, 255, 0.4); }
+
 .hero__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.6rem, 11vw, 5.2rem); line-height: 1; letter-spacing: -0.032em; word-spacing: 0.06em; }
 .hero__kicker { display: block; margin-bottom: 20px; font: 600 clamp(0.7rem, 2.6vw, 0.82rem)/1.3 var(--font-mono); letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-400); }
 .hero__title .line { display: block; overflow: hidden; padding-bottom: 0.16em; margin-bottom: -0.16em; }
@@ -539,6 +550,30 @@ html:not(.js-ok) .manifesto__text .w { opacity: 1; }
 .stat dt { font-size: 0.92rem; color: var(--ink-soft); font-weight: 500; }
 .stat dd { font: 800 clamp(2.8rem, 9vw, 5rem)/1 var(--font-display); letter-spacing: -0.05em; color: var(--blue-600); }
 
+/* Banner con tractocamión */
+.banner {
+  position: relative; display: grid; margin-top: clamp(48px, 8vw, 96px); overflow: hidden; isolation: isolate;
+  border-radius: var(--r-xl); border: 1px solid rgba(255, 255, 255, 0.13); color: #fff;
+  background: linear-gradient(160deg, #173f9f 0%, var(--navy-800) 40%, var(--navy-950) 100%);
+  box-shadow: 0 40px 80px -40px rgba(7, 20, 64, 0.75);
+}
+.banner::before {
+  content: ''; position: absolute; top: 0; right: 0; width: 110px; height: 110px; z-index: 0; pointer-events: none;
+  background: linear-gradient(225deg, transparent 38%, var(--gold-500) 38% 42%, transparent 42% 47%, var(--blue-400) 47% 50%, transparent 50%);
+}
+.banner__copy { position: relative; z-index: 1; display: grid; justify-items: start; gap: 14px; padding: clamp(28px, 5vw, 56px) clamp(24px, 5vw, 56px) 8px; }
+.banner__copy .eyebrow { margin-bottom: 0; }
+.banner__title { max-width: 20ch; font: 700 clamp(1.7rem, 4.2vw, 2.7rem)/1.08 var(--font-display); letter-spacing: -0.035em; text-wrap: balance; }
+.banner__lead { max-width: 40ch; color: rgba(255, 255, 255, 0.78); }
+.banner__copy .btn { margin-top: 8px; }
+.banner__art { position: relative; z-index: 1; align-self: end; }
+.banner__truck { width: 100%; height: auto; }
+.banner__rig { animation: bannerBob 3.2s ease-in-out infinite; }
+@keyframes bannerBob { 50% { transform: translateY(-2px); } }
+.banner__spokes { transform-box: fill-box; transform-origin: center; animation: spin 1.1s linear infinite; }
+.banner__dash { stroke-dasharray: 22 18; animation: bannerRoad 0.9s linear infinite; }
+@keyframes bannerRoad { to { stroke-dashoffset: 40; } }
+
 /* ---------- 9. CURSOS (tarjetas apiladas con sticky) ---------- */
 .stack { display: grid; gap: 28px; padding-bottom: 24px; }
 
@@ -583,6 +618,9 @@ html:not(.js-ok) .manifesto__text .w { opacity: 1; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chips li { padding: 6px 13px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.22); font-size: 0.78rem; font-weight: 500; color: rgba(255, 255, 255, 0.88); background: rgba(255, 255, 255, 0.05); }
 .course-card .btn { margin-top: 8px; }
+.course-card__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+.course-card__actions .btn { margin-top: 0; padding-inline: 18px; }
+.btn__tag { padding: 4px 9px; border-radius: 999px; background: var(--navy-900); color: var(--gold-400); font: 700 0.68rem/1 var(--font-mono); font-style: normal; letter-spacing: 0.1em; }
 
 /* Ilustraciones de vehículos (línea que se dibuja) */
 .vehicle { width: min(100%, 500px); height: auto; overflow: visible; animation: bob 5s ease-in-out infinite; }
@@ -820,7 +858,7 @@ html.js-ok .is-in .vehicle .v-line > *, html.js-ok .is-in .vehicle .v-ground > *
 .footer__bottom { padding-bottom: 8px; }
 
 /* ---------- 16. WHATSAPP FLOTANTE ---------- */
-.wa-float { position: fixed; right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom)); z-index: 850; }
+.wa-float { position: fixed; right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom)); z-index: 850; display: flex; align-items: flex-end; gap: 14px; }
 .wa-float__btn {
   position: relative; display: grid; place-items: center; width: 60px; height: 60px; border-radius: 50%; background: var(--wa); color: #fff;
   box-shadow: 0 16px 36px -8px rgba(20, 164, 77, 0.65), 0 0 0 3px rgba(255, 255, 255, 0.9);
@@ -833,19 +871,40 @@ html.is-ready .wa-float__btn { transition: transform 0.4s var(--ease), box-shado
 html.menu-open .wa-float { opacity: 0; pointer-events: none; }
 .wa-float__btn:hover { transform: scale(1.08) rotate(-6deg); }
 .wa-float__btn svg { width: 32px; height: 32px; }
+.wa-float__city {
+  position: absolute; left: 50%; bottom: -9px; translate: -50% 0; padding: 3px 7px; border-radius: 999px; border: 2px solid #fff;
+  background: var(--navy-900); color: var(--gold-400); font: 700 0.6rem/1 var(--font-mono); letter-spacing: 0.08em; white-space: nowrap; pointer-events: none;
+}
 .wa-float__ring { position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--wa); animation: waRing 2.4s ease-out infinite; pointer-events: none; }
 .wa-float__ring--2 { animation-delay: 1.2s; }
 @keyframes waRing { from { transform: scale(1); opacity: 0.8; } to { transform: scale(1.9); opacity: 0; } }
 .wa-float__tip {
-  position: absolute; right: 74px; bottom: 12px; padding: 10px 16px; border-radius: 999px; white-space: nowrap;
+  position: absolute; right: calc(100% + 14px); bottom: 12px; padding: 10px 16px; border-radius: 999px; white-space: nowrap;
   background: #fff; color: var(--navy-900); font-size: 0.86rem; font-weight: 600; box-shadow: 0 18px 40px -14px rgba(0, 0, 0, 0.5);
   opacity: 0; transform: translateX(14px) scale(0.92); transform-origin: right center; pointer-events: none;
   transition: opacity 0.5s var(--ease), transform 0.6s var(--ease);
 }
 .wa-float.is-tip .wa-float__tip { opacity: 1; transform: none; }
 
+/* ---------- 16b. VIDEO DEL CURSO (modal) ---------- */
+.video-modal {
+  width: min(960px, calc(100% - 32px)); max-height: calc(100svh - 32px); margin: auto; padding: 0; overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18); border-radius: var(--r-xl); background: var(--navy-950); color: #fff;
+  box-shadow: 0 50px 120px -30px rgba(0, 0, 0, 0.9);
+}
+.video-modal::backdrop { background: rgba(4, 11, 36, 0.82); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+.video-modal[open] { animation: fadeIn 0.35s var(--ease); }
+.video-modal__bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 12px 12px 22px; }
+.video-modal__bar p { font: 600 0.95rem/1.3 var(--font-display); letter-spacing: -0.01em; }
+.video-modal__close { display: grid; place-items: center; flex: none; width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); transition: background 0.3s, color 0.3s; }
+.video-modal__close:hover { background: var(--gold-500); color: var(--navy-950); }
+.video-modal__close svg { width: 18px; height: 18px; }
+.video-modal video { display: block; width: 100%; max-height: calc(100svh - 32px - 66px); background: #000; }
+html.video-open, html.video-open body { overflow: hidden; }
+
 /* ---------- 17. RESPONSIVE (mobile first: solo min-width) ---------- */
 @media (min-width: 640px) {
+  .sct-card i { display: inline; }
   .route-card { display: block; }
   .hero__cta .btn { flex: 0 1 auto; }
   .stats { grid-template-columns: repeat(4, 1fr); }
@@ -872,6 +931,9 @@ html.menu-open .wa-float { opacity: 0; pointer-events: none; }
 }
 
 @media (min-width: 900px) {
+  .banner { grid-template-columns: 0.95fr 1.05fr; }
+  .banner::before { width: 190px; height: 190px; }
+  .banner__copy { align-self: center; padding-bottom: clamp(28px, 5vw, 56px); }
   .course-card { grid-template-columns: 1fr 1.05fr; align-items: center; gap: 32px; min-height: 470px; padding: 46px 52px; top: calc(var(--header-h) + 26px + var(--i) * 16px); }
   .course-card__art { order: 0; }
   .course-card::before { width: 260px; height: 260px; }

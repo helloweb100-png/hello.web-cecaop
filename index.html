@@ -69,8 +69,13 @@
         "openingHoursSpecification": [{
           "@type": "OpeningHoursSpecification",
           "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "09:00",
+          "opens": "08:00",
           "closes": "16:00"
+        }, {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "14:00"
         }],
         "contactPoint": [
           { "@type": "ContactPoint", "telephone": "+52 477 467 9810", "contactType": "customer service", "areaServed": "MX", "availableLanguage": "es" }
@@ -121,7 +126,7 @@
           {
             "@type": "Question",
             "name": "¿Dónde están y cuál es el horario de atención?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Estamos en Boulevard Miguel de Cervantes Saavedra Sur 2302-D, Santa Rita, León de los Aldama, Guanajuato, por Soriana Satélite. Atendemos de lunes a viernes de 9:00 AM a 4:00 PM." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Estamos en Boulevard Miguel de Cervantes Saavedra Sur 2302-D, Santa Rita, León de los Aldama, Guanajuato, por Soriana Satélite. Atendemos de lunes a viernes de 8:00 AM a 4:00 PM y sábados de 9:00 AM a 2:00 PM." }
           },
           {
             "@type": "Question",
@@ -153,6 +158,7 @@
       <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z M22 2 11 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
       <symbol id="i-road" viewBox="0 0 24 24"><path d="M4 22 8 2M20 22 16 2M12 4v3M12 11v3M12 18v3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
       <symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 8.5v7l6-3.5z" fill="currentColor"/></symbol>
       <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
       <symbol id="i-facebook" viewBox="0 0 24 24"><path fill="currentColor" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></symbol>
     </defs>
@@ -253,6 +259,12 @@
 
       <div class="container hero__grid">
         <div class="hero__copy">
+          <div class="sct-card" data-hero-in>
+            <strong>CECAOP “César Enrique Rodríguez Cortés”</strong>
+            <span>Escuela registrada ante la SCT</span>
+            <p><span><b>SCT/000219</b> · Aguascalientes</span><i aria-hidden="true">|</i><span><b>SCT/000344</b> · León</span></p>
+          </div>
+
           <h1 class="hero__title" id="hero-title">
             <span class="hero__kicker" data-hero-in>Cursos y licencias federales</span>
             <span class="line"><span data-hero-in>Tu licencia,</span></span>
@@ -355,17 +367,129 @@
           </div>
           <div class="stat" data-reveal style="--d:90ms">
             <dt>Días de atención a la semana</dt>
-            <dd><span data-count="5">5</span></dd>
+            <dd><span data-count="6">6</span></dd>
           </div>
           <div class="stat" data-reveal style="--d:180ms">
             <dt>Horas de atención al día</dt>
-            <dd><span data-count="7">7</span></dd>
+            <dd><span data-count="8">8</span></dd>
           </div>
           <div class="stat" data-reveal style="--d:270ms">
             <dt>Líneas de contacto directo</dt>
             <dd><span data-count="2">2</span></dd>
           </div>
         </dl>
+
+        <!-- Banner con tractocamión (el logotipo va en la caja del tráiler) -->
+        <div class="banner" data-reveal="scale">
+          <div class="banner__copy">
+            <p class="eyebrow">Sector transporte</p>
+            <p class="banner__title">Trámites de licencias federales para el sector transporte</p>
+            <p class="banner__lead">Asesoría, capacitación y gestión de tu licencia en un solo lugar.</p>
+            <a class="btn btn--gold btn--lg" href="#cursos" data-magnetic>
+              <span>Conoce nuestros cursos</span>
+              <svg class="ico ico--arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+          </div>
+
+          <div class="banner__art">
+            <svg class="banner__truck" viewBox="0 -80 640 360" role="img" aria-label="Tractocamión de CECAOP con el logotipo en la caja">
+              <defs>
+                <radialGradient id="bn-sun" cx="50%" cy="50%" r="50%">
+                  <stop offset="0" stop-color="#ffc20e" stop-opacity="0.55"/>
+                  <stop offset="1" stop-color="#ffc20e" stop-opacity="0"/>
+                </radialGradient>
+                <linearGradient id="bn-road" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="#040b24" stop-opacity="0"/>
+                  <stop offset="0.22" stop-color="#040b24" stop-opacity="1"/>
+                </linearGradient>
+                <linearGradient id="bn-edge" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="#5b8cff" stop-opacity="0"/>
+                  <stop offset="0.3" stop-color="#5b8cff" stop-opacity="0.7"/>
+                </linearGradient>
+                <linearGradient id="bn-cab" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#2f6bff"/>
+                  <stop offset="1" stop-color="#112a78"/>
+                </linearGradient>
+                <linearGradient id="bn-glass" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#cfe0ff"/>
+                  <stop offset="1" stop-color="#5b8cff"/>
+                </linearGradient>
+                <linearGradient id="bn-steel" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#eef3ff"/>
+                  <stop offset="1" stop-color="#8d9bb8"/>
+                </linearGradient>
+                <linearGradient id="bn-beam" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="#ffd43b" stop-opacity="0.5"/>
+                  <stop offset="1" stop-color="#ffd43b" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+
+              <!-- Fondo: sol, montañas y camino -->
+              <g fill="#fff" opacity="0.55"><circle cx="70" cy="-44" r="1.6"/><circle cx="190" cy="-60" r="1.2"/><circle cx="318" cy="-32" r="1.6"/><circle cx="560" cy="-54" r="1.2"/><circle cx="610" cy="6" r="1.6"/></g>
+              <circle cx="470" cy="104" r="120" fill="url(#bn-sun)"/>
+              <rect x="0" y="224" width="640" height="56" fill="url(#bn-road)"/>
+              <path d="M0 224.5H640" stroke="url(#bn-edge)" stroke-width="2" fill="none"/>
+              <path class="banner__dash" d="M-40 254H680" stroke="#ffc20e" stroke-width="4" stroke-linecap="round" fill="none"/>
+
+              <!-- Tractocamión -->
+              <g class="banner__rig">
+                <ellipse cx="312" cy="230" rx="292" ry="6" fill="#000" opacity="0.4"/>
+
+                <!-- Faro (haz de luz) -->
+                <path d="M572 134 L640 96 V178 L572 142 Z" fill="url(#bn-beam)"/>
+
+                <!-- Caja del tráiler con el logotipo -->
+                <rect x="28" y="48" width="368" height="142" rx="7" fill="#fff" stroke="#cdd9f3" stroke-width="2"/>
+                <rect x="29" y="160" width="366" height="8" fill="#1f4fd8"/>
+                <rect x="29" y="172" width="366" height="6" fill="#ffc20e"/>
+                <image href="logo.jpeg" x="50" y="56" width="128" height="100" preserveAspectRatio="xMidYMid meet"/>
+                <text x="194" y="108" font-family="Sora, Inter, sans-serif" font-size="38" font-weight="800" letter-spacing="-1" fill="#071440">CECAOP</text>
+                <text x="196" y="130" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600" letter-spacing="2" fill="#1f4fd8">LICENCIAS FEDERALES</text>
+                <rect x="196" y="140" width="64" height="4" rx="2" fill="#ffc20e"/>
+                <rect x="24" y="150" width="6" height="12" rx="2" fill="#e5384f"/>
+
+                <!-- Chasis y pata de apoyo -->
+                <rect x="36" y="190" width="540" height="12" rx="3" fill="#0a1230"/>
+                <rect x="296" y="190" width="5" height="20" fill="#29386d"/>
+                <rect x="288" y="208" width="21" height="4" rx="2" fill="#29386d"/>
+
+                <!-- Escape -->
+                <rect x="398" y="40" width="7" height="152" rx="3" fill="url(#bn-steel)"/>
+                <rect x="396" y="36" width="11" height="6" rx="3" fill="#8d9bb8"/>
+
+                <!-- Cabina -->
+                <path d="M412 190V96Q412 80 428 80H458Q472 80 478 92L488 112V190Z" fill="url(#bn-cab)"/>
+                <path d="M406 80V54Q406 48 414 48H434L458 80Z" fill="url(#bn-cab)"/>
+                <path d="M406 50H434" stroke="#ffc20e" stroke-width="3" stroke-linecap="round" fill="none"/>
+                <path d="M422 98H452Q458 98 462 104L472 122H422Z" fill="url(#bn-glass)"/>
+                <path d="M442 128V184M442 128H484" stroke="#fff" stroke-opacity="0.35" stroke-width="2" fill="none"/>
+                <rect x="430" y="146" width="8" height="3" rx="1.5" fill="#fff" fill-opacity="0.75"/>
+                <rect x="480" y="102" width="5" height="22" rx="2" fill="#0a1230"/>
+
+                <!-- Cofre -->
+                <path d="M488 190V120Q488 112 496 112H550Q562 112 566 124L576 158V190Z" fill="url(#bn-cab)"/>
+                <path d="M556 124V168M562 128V166M568 136V164" stroke="#c9d4ee" stroke-width="2" stroke-linecap="round" fill="none"/>
+                <ellipse cx="570" cy="138" rx="5" ry="8" fill="#ffd43b"/>
+                <path d="M497 190A27 27 0 0 1 551 190Z" fill="#07102e"/>
+
+                <!-- Franja de marca -->
+                <path d="M412 156H576" stroke="#ffc20e" stroke-width="5" fill="none"/>
+                <path d="M412 165H576" stroke="#9db8ff" stroke-width="3" fill="none"/>
+
+                <!-- Tanque de combustible y defensa -->
+                <rect x="424" y="168" width="40" height="22" rx="11" fill="url(#bn-steel)"/>
+                <rect x="562" y="176" width="22" height="14" rx="4" fill="#c9d4ee"/>
+
+                <!-- Ruedas -->
+                <g transform="translate(92 209)"><circle r="21" fill="#0a0f1e"/><circle r="13" fill="url(#bn-steel)"/><g class="banner__spokes"><path d="M-10 0H10M-5 -8.7L5 8.7M-5 8.7L5 -8.7" stroke="#5b6a99" stroke-width="2" stroke-linecap="round" fill="none"/></g><circle r="4.5" fill="#ffc20e"/></g>
+                <g transform="translate(134 209)"><circle r="21" fill="#0a0f1e"/><circle r="13" fill="url(#bn-steel)"/><g class="banner__spokes"><path d="M-10 0H10M-5 -8.7L5 8.7M-5 8.7L5 -8.7" stroke="#5b6a99" stroke-width="2" stroke-linecap="round" fill="none"/></g><circle r="4.5" fill="#ffc20e"/></g>
+                <g transform="translate(346 209)"><circle r="21" fill="#0a0f1e"/><circle r="13" fill="url(#bn-steel)"/><g class="banner__spokes"><path d="M-10 0H10M-5 -8.7L5 8.7M-5 8.7L5 -8.7" stroke="#5b6a99" stroke-width="2" stroke-linecap="round" fill="none"/></g><circle r="4.5" fill="#ffc20e"/></g>
+                <g transform="translate(388 209)"><circle r="21" fill="#0a0f1e"/><circle r="13" fill="url(#bn-steel)"/><g class="banner__spokes"><path d="M-10 0H10M-5 -8.7L5 8.7M-5 8.7L5 -8.7" stroke="#5b6a99" stroke-width="2" stroke-linecap="round" fill="none"/></g><circle r="4.5" fill="#ffc20e"/></g>
+                <g transform="translate(524 209)"><circle r="21" fill="#0a0f1e"/><circle r="13" fill="url(#bn-steel)"/><g class="banner__spokes"><path d="M-10 0H10M-5 -8.7L5 8.7M-5 8.7L5 -8.7" stroke="#5b6a99" stroke-width="2" stroke-linecap="round" fill="none"/></g><circle r="4.5" fill="#ffc20e"/></g>
+              </g>
+            </svg>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -388,7 +512,11 @@
               <h3>Transporte de pasaje y turismo</h3>
               <p>Para operadores de autobuses de pasaje y turismo. Te preparamos y gestionamos tu licencia federal.</p>
               <ul class="chips"><li>Autobuses</li><li>Pasaje</li><li>Turismo</li></ul>
-              <a class="btn btn--gold" href="#contacto" data-wa data-wa-text="Hola, quiero informes del Curso A: transporte de pasaje y turismo."><svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>Pedir informes</span></a>
+              <a class="btn btn--ghost" href="WhatsApp%20Video%202026-10-26%20at%2012.24.43%20PM.mp4" data-video data-video-title="Curso A: transporte de pasaje y turismo"><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg><span>Ver video del curso</span></a>
+              <div class="course-card__actions">
+                <a class="btn btn--gold" href="#contacto" data-wa data-wa-city="ags" data-wa-text="Hola, quiero informes del Curso A: transporte de pasaje y turismo."><svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>Pedir informes</span><em class="btn__tag">AGS</em></a>
+                <a class="btn btn--gold" href="#contacto" data-wa data-wa-text="Hola, quiero informes del Curso A: transporte de pasaje y turismo."><svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>Pedir informes</span><em class="btn__tag">LEÓN</em></a>
+              </div>
             </div>
             <div class="course-card__art">
               <svg class="vehicle" viewBox="0 0 420 220" role="img" aria-label="Ilustración de un autobús de pasaje">
@@ -422,7 +550,11 @@
               <h3>Transporte de carga general</h3>
               <p>Para operadores de camiones y tractocamiones de carga general. Capacitación y trámite en un solo lugar.</p>
               <ul class="chips"><li>Camiones</li><li>Tractocamiones</li><li>Carga general</li></ul>
-              <a class="btn btn--gold" href="#contacto" data-wa data-wa-text="Hola, quiero informes del Curso B: transporte de carga general."><svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>Pedir informes</span></a>
+              <a class="btn btn--ghost" href="WhatsApp%20Video%202026-10-26%20at%2012.24.43%20PM.mp4" data-video data-video-title="Curso B: transporte de carga general"><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg><span>Ver video del curso</span></a>
+              <div class="course-card__actions">
+                <a class="btn btn--gold" href="#contacto" data-wa data-wa-city="ags" data-wa-text="Hola, quiero informes del Curso B: transporte de carga general."><svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>Pedir informes</span><em class="btn__tag">AGS</em></a>
+                <a class="btn btn--gold" href="#contacto" data-wa data-wa-text="Hola, quiero informes del Curso B: transporte de carga general."><svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>Pedir informes</span><em class="btn__tag">LEÓN</em></a>
+              </div>
             </div>
             <div class="course-card__art">
               <svg class="vehicle" viewBox="0 0 420 220" role="img" aria-label="Ilustración de un tractocamión con caja de carga">
@@ -453,7 +585,11 @@
               <h3>Chofer guía</h3>
               <p>Para choferes que además guían y atienden a grupos de turistas. Prepárate y gestiona tu licencia con nosotros.</p>
               <ul class="chips"><li>Turismo</li><li>Grupos</li><li>Chofer guía</li></ul>
-              <a class="btn btn--gold" href="#contacto" data-wa data-wa-text="Hola, quiero informes del Curso D: chofer guía."><svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>Pedir informes</span></a>
+              <a class="btn btn--ghost" href="WhatsApp%20Video%202026-10-26%20at%2012.24.43%20PM.mp4" data-video data-video-title="Curso D: chofer guía"><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg><span>Ver video del curso</span></a>
+              <div class="course-card__actions">
+                <a class="btn btn--gold" href="#contacto" data-wa data-wa-city="ags" data-wa-text="Hola, quiero informes del Curso D: chofer guía."><svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>Pedir informes</span><em class="btn__tag">AGS</em></a>
+                <a class="btn btn--gold" href="#contacto" data-wa data-wa-text="Hola, quiero informes del Curso D: chofer guía."><svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>Pedir informes</span><em class="btn__tag">LEÓN</em></a>
+              </div>
             </div>
             <div class="course-card__art">
               <svg class="vehicle" viewBox="0 0 420 220" role="img" aria-label="Ilustración de un chofer guía señalando un monumento histórico">
@@ -492,7 +628,11 @@
               <h3>Transporte de materiales y residuos peligrosos</h3>
               <p>Capacitación especializada para operadores que mueven materiales y residuos peligrosos, con trámite al día.</p>
               <ul class="chips"><li>Autotanques</li><li>Materiales peligrosos</li><li>Residuos</li></ul>
-              <a class="btn btn--gold" href="#contacto" data-wa data-wa-text="Hola, quiero informes del Curso E: transporte de materiales y residuos peligrosos."><svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>Pedir informes</span></a>
+              <a class="btn btn--ghost" href="WhatsApp%20Video%202026-10-26%20at%2012.24.43%20PM.mp4" data-video data-video-title="Curso E: transporte de materiales y residuos peligrosos"><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg><span>Ver video del curso</span></a>
+              <div class="course-card__actions">
+                <a class="btn btn--gold" href="#contacto" data-wa data-wa-city="ags" data-wa-text="Hola, quiero informes del Curso E: transporte de materiales y residuos peligrosos."><svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>Pedir informes</span><em class="btn__tag">AGS</em></a>
+                <a class="btn btn--gold" href="#contacto" data-wa data-wa-text="Hola, quiero informes del Curso E: transporte de materiales y residuos peligrosos."><svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>Pedir informes</span><em class="btn__tag">LEÓN</em></a>
+              </div>
             </div>
             <div class="course-card__art">
               <svg class="vehicle" viewBox="0 0 420 220" role="img" aria-label="Ilustración de un autotanque para materiales peligrosos">
@@ -525,7 +665,11 @@
               <h3>Doblemente articulado</h3>
               <p>Para operadores de configuraciones de doble remolque. Capacítate y deja tu trámite federal en buenas manos.</p>
               <ul class="chips"><li>Doble remolque</li><li>Full</li><li>Carga pesada</li></ul>
-              <a class="btn btn--gold" href="#contacto" data-wa data-wa-text="Hola, quiero informes del Curso E: doblemente articulado."><svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>Pedir informes</span></a>
+              <a class="btn btn--ghost" href="WhatsApp%20Video%202026-10-26%20at%2012.24.43%20PM.mp4" data-video data-video-title="Curso E: doblemente articulado"><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg><span>Ver video del curso</span></a>
+              <div class="course-card__actions">
+                <a class="btn btn--gold" href="#contacto" data-wa data-wa-city="ags" data-wa-text="Hola, quiero informes del Curso E: doblemente articulado."><svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>Pedir informes</span><em class="btn__tag">AGS</em></a>
+                <a class="btn btn--gold" href="#contacto" data-wa data-wa-text="Hola, quiero informes del Curso E: doblemente articulado."><svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>Pedir informes</span><em class="btn__tag">LEÓN</em></a>
+              </div>
             </div>
             <div class="course-card__art">
               <svg class="vehicle" viewBox="0 0 420 220" role="img" aria-label="Ilustración de un tractocamión doblemente articulado">
@@ -560,7 +704,11 @@
               <h3>Taxis de puertos y aeropuertos</h3>
               <p>Para taxistas que prestan servicio en puertos y aeropuertos. Te asesoramos y gestionamos tu licencia federal.</p>
               <ul class="chips"><li>Taxi</li><li>Aeropuertos</li><li>Puertos</li></ul>
-              <a class="btn btn--gold" href="#contacto" data-wa data-wa-text="Hola, quiero informes del Curso F: taxis de puertos y aeropuertos."><svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>Pedir informes</span></a>
+              <a class="btn btn--ghost" href="WhatsApp%20Video%202026-10-26%20at%2012.24.43%20PM.mp4" data-video data-video-title="Curso F: taxis de puertos y aeropuertos"><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg><span>Ver video del curso</span></a>
+              <div class="course-card__actions">
+                <a class="btn btn--gold" href="#contacto" data-wa data-wa-city="ags" data-wa-text="Hola, quiero informes del Curso F: taxis de puertos y aeropuertos."><svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>Pedir informes</span><em class="btn__tag">AGS</em></a>
+                <a class="btn btn--gold" href="#contacto" data-wa data-wa-text="Hola, quiero informes del Curso F: taxis de puertos y aeropuertos."><svg class="ico" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>Pedir informes</span><em class="btn__tag">LEÓN</em></a>
+              </div>
             </div>
             <div class="course-card__art">
               <svg class="vehicle" viewBox="0 0 420 220" role="img" aria-label="Ilustración de un taxi y un avión de aeropuerto">
@@ -732,11 +880,12 @@
               <p class="status-chip status-chip--light" data-status-wrap><span class="status-chip__dot" data-status-dot aria-hidden="true"></span><span data-status>Consultando horario</span></p>
             </div>
             <ul class="hours__list" id="hours-list">
-              <li data-day="1"><span>Lunes</span><b>9:00 AM a 4:00 PM</b></li>
-              <li data-day="2"><span>Martes</span><b>9:00 AM a 4:00 PM</b></li>
-              <li data-day="3"><span>Miércoles</span><b>9:00 AM a 4:00 PM</b></li>
-              <li data-day="4"><span>Jueves</span><b>9:00 AM a 4:00 PM</b></li>
-              <li data-day="5"><span>Viernes</span><b>9:00 AM a 4:00 PM</b></li>
+              <li data-day="1"><span>Lunes</span><b>8:00 AM a 4:00 PM</b></li>
+              <li data-day="2"><span>Martes</span><b>8:00 AM a 4:00 PM</b></li>
+              <li data-day="3"><span>Miércoles</span><b>8:00 AM a 4:00 PM</b></li>
+              <li data-day="4"><span>Jueves</span><b>8:00 AM a 4:00 PM</b></li>
+              <li data-day="5"><span>Viernes</span><b>8:00 AM a 4:00 PM</b></li>
+              <li data-day="6"><span>Sábado</span><b>9:00 AM a 2:00 PM</b></li>
             </ul>
           </div>
 
@@ -786,7 +935,7 @@
           </div>
           <div class="acc" data-reveal style="--d:240ms">
             <h3><button class="acc__btn" type="button" aria-expanded="false" aria-controls="faq-5" id="faq-5-btn"><span>¿Dónde están y cuál es el horario?</span><i aria-hidden="true"></i></button></h3>
-            <div class="acc__panel" id="faq-5" role="region" aria-labelledby="faq-5-btn"><div><p>Estamos en Boulevard Miguel de Cervantes Saavedra Sur 2302-D, Santa Rita, León de los Aldama, Gto., por Soriana Satélite. Atendemos de lunes a viernes de 9:00 AM a 4:00 PM.</p></div></div>
+            <div class="acc__panel" id="faq-5" role="region" aria-labelledby="faq-5-btn"><div><p>Estamos en Boulevard Miguel de Cervantes Saavedra Sur 2302-D, Santa Rita, León de los Aldama, Gto., por Soriana Satélite. Atendemos de lunes a viernes de 8:00 AM a 4:00 PM y sábados de 9:00 AM a 2:00 PM.</p></div></div>
           </div>
           <div class="acc" data-reveal style="--d:300ms">
             <h3><button class="acc__btn" type="button" aria-expanded="false" aria-controls="faq-6" id="faq-6-btn"><span>¿Cómo inicio mi trámite?</span><i aria-hidden="true"></i></button></h3>
@@ -825,7 +974,7 @@
             </li>
             <li>
               <span class="contact__ico"><svg aria-hidden="true"><use href="#i-clock"/></svg></span>
-              <div><small>Horario</small><b>Lunes a viernes, 9:00 AM a 4:00 PM</b></div>
+              <div><small>Horario</small><b>Lunes a viernes, 8:00 AM a 4:00 PM</b><b>Sábados, 9:00 AM a 2:00 PM</b></div>
             </li>
           </ul>
         </div>
@@ -916,7 +1065,8 @@
           <li><a href="tel:+524774679810">477 467 9810</a></li>
           <li><a href="mailto:citas@cecaop.com.mx">citas@cecaop.com.mx</a></li>
           <li>Ing. Jesús Rodríguez</li>
-          <li>Lunes a viernes, 9:00 AM a 4:00 PM</li>
+          <li>Lunes a viernes, 8:00 AM a 4:00 PM</li>
+          <li>Sábados, 9:00 AM a 2:00 PM</li>
         </ul>
       </div>
 
@@ -935,12 +1085,30 @@
   <!-- ============ WHATSAPP FLOTANTE ============ -->
   <div class="wa-float" id="wa-float">
     <p class="wa-float__tip" id="wa-tip" role="note">¿Hablamos de tu licencia?</p>
-    <a class="wa-float__btn" href="#contacto" data-wa data-wa-text="Hola, necesito informes sobre licencias federales." aria-label="Escribir a CECAOP por WhatsApp">
+    <a class="wa-float__btn" href="#contacto" data-wa data-wa-city="ags" data-wa-text="Hola, necesito informes sobre licencias federales." aria-label="Escribir a CECAOP Aguascalientes por WhatsApp" title="WhatsApp Aguascalientes">
       <span class="wa-float__ring" aria-hidden="true"></span>
       <span class="wa-float__ring wa-float__ring--2" aria-hidden="true"></span>
       <svg aria-hidden="true"><use href="#i-whatsapp"/></svg>
+      <b class="wa-float__city" aria-hidden="true">AGS</b>
+    </a>
+    <a class="wa-float__btn" href="#contacto" data-wa data-wa-text="Hola, necesito informes sobre licencias federales." aria-label="Escribir a CECAOP León por WhatsApp" title="WhatsApp León">
+      <span class="wa-float__ring" aria-hidden="true"></span>
+      <span class="wa-float__ring wa-float__ring--2" aria-hidden="true"></span>
+      <svg aria-hidden="true"><use href="#i-whatsapp"/></svg>
+      <b class="wa-float__city" aria-hidden="true">LEÓN</b>
     </a>
   </div>
+
+  <!-- ============ VIDEO DEL CURSO ============ -->
+  <dialog class="video-modal" id="video-modal" aria-labelledby="video-modal-title">
+    <div class="video-modal__bar">
+      <p id="video-modal-title">Video del curso</p>
+      <button class="video-modal__close" type="button" data-video-close aria-label="Cerrar video">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <video controls playsinline preload="none"></video>
+  </dialog>
 
   <script src="script.js" defer></script>
 </body>
